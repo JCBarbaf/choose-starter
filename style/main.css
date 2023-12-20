@@ -1,3 +1,9 @@
+:root {
+    --top-part-color: #ee4035;
+    --bottom-part-color: #ececec;
+    --middle-part-color: #58585a;
+    --button-color: #b2b1b2;
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,24 +13,70 @@
 body {
     background-color: rgb(68, 68, 68);
 }
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .starter-container {
 
 }
 .pokeball {
-
+    position: relative;
+    --size: 20rem;
+    width: var(--size);
+    height: var(--size);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 50%;
 }
 .top-part {
-
+    flex: 1;
+    background-color: var(--top-part-color);
 }
 .bottom-part {
-    
+    flex: 1;
+    background-color: var(--bottom-part-color);
 }
 .middle-part {
-
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1rem;
+    margin: auto;
+    background-color: var(--middle-part-color);
 }
 .pokeball-button {
-
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    --size: 5rem;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: var(--middle-part-color);
+    border-radius: 50%;
+}
+.pokeball-button button {
+    --size: 60%;
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 50%;
 }
 .starter-image {
     visibility: hidden;
+}
+.pokemon-name {
+    text-align: center;
 }
