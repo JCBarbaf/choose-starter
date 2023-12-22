@@ -1,8 +1,9 @@
 :root {
-    --top-part-color: #ee4035;
-    --bottom-part-color: #ececec;
-    --middle-part-color: #58585a;
-    --button-color: #b2b1b2;
+    --top-part-color: rgb(238, 64, 53);
+    --bottom-part-color: rgb(236, 236, 236);
+    --middle-part-color: rgb(88, 88, 90);
+    --button-color: rgb(178, 177, 178);
+    --border-color: rgb(131, 131, 134);
 }
 * {
     box-sizing: border-box;
@@ -18,6 +19,11 @@ main {
     justify-content: center;
     align-items: center;
 }
+button {
+    color: inherit;
+    border: none;
+    cursor: pointer;
+}
 .starter-container {
 
 }
@@ -30,6 +36,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border: 0.5rem solid var(--border-color);
     border-radius: 50%;
 }
 .top-part {
@@ -50,7 +57,7 @@ main {
     margin: auto;
     background-color: var(--middle-part-color);
 }
-.pokeball-button {
+.middle-circle {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -59,23 +66,36 @@ main {
     --size: 5rem;
     width: var(--size);
     height: var(--size);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: auto;
     background-color: var(--middle-part-color);
     border-radius: 50%;
 }
-.pokeball-button button {
-    --size: 60%;
+.pokeball-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    --size: 3rem;
     width: var(--size);
     height: var(--size);
-    background-color: var(--button-color);
-    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
     border-radius: 50%;
+}
+.pokeball-button.active {
+    --size: 100%;
 }
 .starter-image {
     visibility: hidden;
+    --size: 50%;
+    width: var(--size);
+    height: var(--size);
+}
+.pokeball-button.active .starter-image {
+    visibility: visible;
 }
 .pokemon-name {
     text-align: center;
