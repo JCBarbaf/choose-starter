@@ -1,1 +1,3 @@
-import './pokeball.js';
+import './starter.js';
+import './title.js';
+import './confirmation.js';
