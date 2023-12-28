@@ -4,6 +4,7 @@
     --bottom-part-color: rgb(236, 236, 236);
     --middle-part-color: rgb(88, 88, 90);
     --button-color: rgb(178, 177, 178);
+    --pokeball-size: 20rem;
     --opening-time: 0.3s;
 }
 * {
@@ -13,7 +14,8 @@
     color: inherit;
 }
 body {
-    background-color: rgb(68, 68, 68);
+    background: rgb(68, 68, 68) url(../img/background.webp);
+    background-attachment: fixed;
     font-family: Arial, Helvetica, sans-serif;
 }
 button {
@@ -51,10 +53,9 @@ h1 {
 }
 .pokeball {
     cursor: pointer;
-    position: relative;
-    --size: 20rem;
-    width: var(--size);
-    height: var(--size);
+    position: relative;;
+    width: var(--pokeball-size);
+    height: var(--pokeball-size);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -69,11 +70,11 @@ h1 {
 }
 .top-part {
     flex: 1;
-    background-color: var(--top-part-color);
+    background: var(--top-part-color) linear-gradient(150deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.2) 100%);
 }
 .bottom-part {
     flex: 1;
-    background-color: var(--bottom-part-color);
+    background: var(--bottom-part-color) linear-gradient(150deg, rgba(255,255,255,0.2) 0%, rgba(0, 0, 0, 0.2) 80%, rgba(0,0,0,0.2) 100%);
 }
 .middle-part {
     position: absolute;
@@ -81,7 +82,7 @@ h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 1rem;
+    height: 5%;
     margin: auto;
     background-color: var(--middle-part-color);
 }
@@ -91,7 +92,7 @@ h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    --size: 25%;
+    --size: 35%;
     width: var(--size);
     height: var(--size);
     margin: auto;
@@ -104,13 +105,14 @@ h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    --size: 15%;
+    --size: 25%;
     width: var(--size);
     height: var(--size);
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
+    background: var(--bottom-part-color) linear-gradient(150deg, rgba(255,255,255,0.2) 0%, rgba(0, 0, 0, 0.2) 80%, rgba(0,0,0,0.2) 100%);
     border-radius: 50%;
     transition-property: width height;
     transition: var(--opening-time) ease-in;
