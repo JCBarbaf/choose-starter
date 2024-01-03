@@ -9,6 +9,7 @@ class Starter extends HTMLElement {
       document.addEventListener('choose', (event => {
         this.removeActive();
       }));
+      this.pokemon = this.getAttribute('pokemon');
       this.render()
     }
   
@@ -192,10 +193,10 @@ class Starter extends HTMLElement {
             <div class="middle-part"></div>
             <div class="middle-circle"></div>
             <button class="pokeball-button">
-                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png" alt="bulbasaur" class="starter-image">
+              <img src="img/pokemon/${this.pokemon}.webp" alt="${this.pokemon}" title="${this.pokemon}" class="starter-image">
             </button>
         </div>
-        <h2 class="pokemon-name">bulbasaur</h2>
+        <h2 class="pokemon-name">${this.pokemon}</h2>
       </div>
       `
       const button = this.shadow.querySelector('.pokeball-button');

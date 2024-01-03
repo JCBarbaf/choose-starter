@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'pokemon classic';
+    src: url(../font/pokemon-classic.ttf);
+}
 :root {
     --white: rgb(224, 224, 224);
 }
@@ -8,15 +12,11 @@
     color: inherit;
 }
 body {
+    overflow-y: hidden;
     background: rgb(68, 68, 68) url(../img/background.webp);
     background-attachment: fixed;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'pokemon classic', Arial, Helvetica, sans-serif;
     color: var(--white);
 }
-.starters {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 3%;
-}
+
 

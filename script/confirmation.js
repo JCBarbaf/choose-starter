@@ -6,7 +6,10 @@ class Confirmation extends HTMLElement {
     }
   
     connectedCallback () {
-      this.render()
+      document.addEventListener('choose', (event => {
+        this.confirmationControl();
+      }));
+      this.render();
     }
   
     render () {
@@ -17,22 +20,75 @@ class Confirmation extends HTMLElement {
             --name-color: rgb(185, 185, 30);
         }
         .confirmation-container {
+            width: 70rem;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: auto;
+            background: rgb(245, 245, 254) linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
+            color: rgb(60,60,60);
+            border: 0.5rem solid rgb(160, 208, 224);
+            border-radius: 1rem;
+            transform: translateY(200%);
+        }
+        .confirmation-container.active {
+          animation: pop-up 0.3s ease-in forwards;
         }
         .confirmation-text {
+          font-weight: normal;
         }
         .pokemon-name {
             color: var(--name-color);
+            font-weight: bold;
+        }
+        .button-container {
+          display: flex;
+          align-items: center;
+          margin: 0 2%;
+          font-size: 1.2rem;
+        }
+        button {
+          background: none;
+          color: inherit;
+          border: none;
+          cursor: pointer;
+          font: inherit;
+        }
+        button:focus {
+          outline: none;
+        }
+        .arrow {
+          visibility: hidden;
+        }
+        .button-container:has(button:hover) .arrow, .button-container:has(button:focus) .arrow {
+          visibility: visible;
+        }
+        @keyframes pop-up {
+          from {
+            transform: translateY(200%);
+          }
+          to {
+            transform: translateY(0%);
+          }
         }
       </style>
       <div class="confirmation-container">
-        <h2 class="confirmation-text">So, you want to choose <span class="pokemon-name">Crabominable</span>?<h2>
-        <button class="yes-button">Yes</button>
-        <button class="no-button">No</button>
+        <h2 class="confirmation-text">So, you want to choose <span class="pokemon-name">Crabominable</span>?</h2>
+        <div class="button-container">
+          <p class="arrow">►</p>
+          <button class="yes-button">Yes</button>
+        </div>
+        <div class="button-container">
+          <p class="arrow">►</p>
+          <button class="no-button">No</button>
+        </div>
       </div>
       `
+    }
+    confirmationControl() {
+      const confirmation = this.shadow.querySelector('.confirmation-container');
+      confirmation.classList.remove('active');
+      confirmation.classList.add('active');
     }
   }
   
