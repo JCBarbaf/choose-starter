@@ -202,11 +202,19 @@ class Starter extends HTMLElement {
       const button = this.shadow.querySelector('.pokeball-button');
       const starter = this.shadow.querySelector('.starter-container');
       button.addEventListener('click', () => {
-        if (!starter.classList.contains('active')) {
-          document.dispatchEvent(new CustomEvent('choose'));
-          starter.classList.add('active');
+          if (!starter.classList.contains('active')) {
+            document.dispatchEvent(new CustomEvent('choose', {
+                detail: {
+                    pokemon: this.pokemon
+                }
+            }));
+            starter.classList.add('active');
         } else {
-          document.dispatchEvent(new CustomEvent('choose'));          
+            document.dispatchEvent(new CustomEvent('choose', {
+                detail: {
+                    pokemon: ''
+                }
+            }));          
         }
       });
     }

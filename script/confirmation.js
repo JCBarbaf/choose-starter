@@ -7,7 +7,9 @@ class Confirmation extends HTMLElement {
   
     connectedCallback () {
       document.addEventListener('choose', (event => {
-        this.confirmationControl();
+        console.log(event);
+        this.confirmationControl(event.detail.pokemon);
+        // this.confirmationControl('Placeholder');
       }));
       this.render();
     }
@@ -40,6 +42,7 @@ class Confirmation extends HTMLElement {
         .pokemon-name {
             color: var(--name-color);
             font-weight: bold;
+            text-transform: capitalize;
         }
         .button-container {
           display: flex;
@@ -85,10 +88,18 @@ class Confirmation extends HTMLElement {
       </div>
       `
     }
-    confirmationControl() {
+    confirmationControl(pokemon) {
       const confirmation = this.shadow.querySelector('.confirmation-container');
-      confirmation.classList.remove('active');
-      confirmation.classList.add('active');
+      const pokemonName = this.shadow.querySelector('.pokemon-name');
+      pokemonName.innerHTML = pokemon;
+      if (pokemon != "") {
+        confirmation.classList.remove('active');
+        setTimeout(() => {
+          confirmation.classList.add('active');
+        }, 1)
+      } else {
+        confirmation.classList.remove('active');
+      }
     }
   }
   
