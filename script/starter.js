@@ -26,6 +26,7 @@ class Starter extends HTMLElement {
           --opening-time: 0.3s;
         }
       .starter-container {
+          position: relative;
           color: var(--white);
       }
       .arrow {
@@ -54,6 +55,33 @@ class Starter extends HTMLElement {
       }
       .pokeball:hover {
           animation: pokeball-shake 0.5s ease-in-out forwards;
+      }
+      .star {
+        width: 3rem;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 500;
+      }
+      .star:nth-of-type(1) {
+        transform: translate(-10rem,-8rem) rotate(-35deg) scale(2);
+      }
+      .star:nth-of-type(2) {
+        transform: translate(0rem,-11rem) rotate(2deg) scale(0.5);
+      }
+      .star:nth-of-type(3) {
+        transform: translate(9rem,-8rem) rotate(20deg) scale(1);
+      }
+      @keyframes star {
+        0% {
+          transform: translate(var(--initial-x),var(--initial-y)) rotate(var(--initial-rotation)) scale(var(--initial-scale));
+        }
+        100% {
+          transform: translate(var(--final-x),var(--final-y)) rotate(var(--final-rotation)) scale(var(--final-scale));
+        }
       }
       .top-part {
           flex: 1;
@@ -187,6 +215,9 @@ class Starter extends HTMLElement {
             </linearGradient>
             </defs>
         </svg>
+        <img class="star" src="img/star.svg">
+        <img class="star" src="img/star.svg">
+        <img class="star" src="img/star.svg">
         <div class="pokeball">
             <div class="top-part"></div>
             <div class="bottom-part"></div>
