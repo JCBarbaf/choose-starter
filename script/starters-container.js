@@ -26,7 +26,7 @@ class StartersContainer extends HTMLElement {
         <starter-component pokemon=""></starter-component>
       </div>
       `
-      const pokemonNames = ['bulbasaur','charmander','squirtle','eevee','pikachu'];
+      const pokemonNames = ['bulbasaur','charmander','squirtle','pikachu','eevee','magikarp','chikorita','cyndaquil','totodile','treecko','torchic','mudkip','turtwig','chimchar','piplup','snivy','tepig','oshawott','chespin','fennekin','froakie','rowlet','litten','popplio','grookey','scorbunny','sobble','sprigatito','fuecoco','quaxly','espeon','umbreon','pichu','ditto','picachu','mewtwo','trubbish'];
       const starterComponents = this.shadow.querySelectorAll('starter-component');
       const usedPokemon = new Set();
       starterComponents.forEach(starter => {
