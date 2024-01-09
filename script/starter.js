@@ -34,6 +34,9 @@ class Starter extends HTMLElement {
           position: relative;
           color: var(--white);
         }
+        .choosen, .not-choosen {
+          pointer-events: none;
+        }
         .arrow {
           display: block;
           width: 4rem;
@@ -56,6 +59,7 @@ class Starter extends HTMLElement {
           margin: 5% auto;
           border: 0.5rem solid var(--middle-part-color);
           border-radius: 50%;
+          box-shadow: 0.5rem 0.5rem 0 0 rgb(0,0,0,0.2);
           transform-origin: 50% 100%;
         }
         .pokeball:hover {
@@ -295,6 +299,8 @@ class Starter extends HTMLElement {
       button.disabled = true;
       if (pokemon == this.pokemon) {
         starter.classList.add('choosen');
+      } else {
+        starter.classList.add('not-choosen');
       }
     }
   }
