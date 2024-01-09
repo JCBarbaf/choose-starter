@@ -3,13 +3,18 @@ class Starter extends HTMLElement {
     constructor () {
       super()
       this.shadow = this.attachShadow({ mode: 'open' })
+      this.pokemon = this.getAttribute('pokemon');
     }
   
     connectedCallback () {
       document.addEventListener('choose', (event => {
         this.removeActive();
       }));
-      this.pokemon = this.getAttribute('pokemon');
+      document.addEventListener('choosen', (event => {
+        console.log(event.detail)
+        this.removeActive();
+        this.makeChoosen(event.detail.pokemon);
+      }));
       this.render()
     }
   
@@ -25,21 +30,21 @@ class Starter extends HTMLElement {
           --pokeball-size: 20rem;
           --opening-time: 0.3s;
         }
-      .starter-container {
+        .starter-container {
           position: relative;
           color: var(--white);
-      }
-      .arrow {
+        }
+        .arrow {
           display: block;
           width: 4rem;
           visibility: hidden;
           margin: 0 auto;
           animation: float 2s ease-in-out infinite;
-      }
-      .starter-container:hover .arrow {
+        }
+        .starter-container:hover .arrow {
           visibility: visible;
-      }
-      .pokeball {
+        }
+        .pokeball {
           cursor: pointer;
           position: relative;;
           width: var(--pokeball-size);
@@ -52,46 +57,77 @@ class Starter extends HTMLElement {
           border: 0.5rem solid var(--middle-part-color);
           border-radius: 50%;
           transform-origin: 50% 100%;
-      }
-      .pokeball:hover {
+        }
+        .pokeball:hover {
           animation: pokeball-shake 0.5s ease-in-out forwards;
-      }
-      .star {
-        width: 3rem;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        z-index: 500;
-      }
-      .star:nth-of-type(1) {
-        transform: translate(-10rem,-8rem) rotate(-35deg) scale(2);
-      }
-      .star:nth-of-type(2) {
-        transform: translate(0rem,-11rem) rotate(2deg) scale(0.5);
-      }
-      .star:nth-of-type(3) {
-        transform: translate(9rem,-8rem) rotate(20deg) scale(1);
-      }
-      @keyframes star {
-        0% {
-          transform: translate(var(--initial-x),var(--initial-y)) rotate(var(--initial-rotation)) scale(var(--initial-scale));
         }
-        100% {
-          transform: translate(var(--final-x),var(--final-y)) rotate(var(--final-rotation)) scale(var(--final-scale));
+        .choosen .pokeball {
+          filter: brightness(0.5);
         }
-      }
-      .top-part {
+        .star {
+          width: 3rem;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          visibility: hidden;
+          margin: auto;
+          z-index: 500;
+        }
+        .choosen .star {
+          visibility: visible;
+          animation: star 0.3s ease-in forwards;
+        }
+        .star:nth-of-type(1) {
+          --initial-x: -10rem;
+          --final-x: -11rem;
+          --initial-y: -8rem;
+          --final-y: -9rem;
+          --initial-rotation: -35deg;
+          --final-rotation: -40deg;
+          --initial-scale: 2;
+          --final-scale: 2.2;
+        }
+        .star:nth-of-type(2) {
+          --initial-x: 0rem;
+          --final-x: 0rem;
+          --initial-y: -11rem;
+          --final-y: -12rem;
+          --initial-rotation: 2deg;
+          --final-rotation: 5deg;
+          --initial-scale: 0.5;
+          --final-scale: 0.7;
+        }
+        .star:nth-of-type(3) {
+          --initial-x: 9rem;
+          --final-x: 10rem;
+          --initial-y: -8rem;
+          --final-y: -9rem;
+          --initial-rotation: 20deg;
+          --final-rotation: 24deg;
+          --initial-scale: 1;
+          --final-scale: 1.3;
+        }
+        @keyframes star {
+          0% {
+            transform: translate(var(--initial-x),var(--initial-y)) rotate(var(--initial-rotation)) scale(var(--initial-scale));
+            opacity: 1;
+          }
+          100% {
+            transform: translate(var(--final-x),var(--final-y)) rotate(var(--final-rotation)) scale(var(--final-scale));
+            opacity: 0;
+          }
+        }
+        .top-part {
           flex: 1;
           background: var(--top-part-color) linear-gradient(150deg, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.2) 100%);
-      }
-      .bottom-part {
+        }
+        .bottom-part {
           flex: 1;
           background: var(--bottom-part-color) linear-gradient(150deg, rgba(255,255,255,0.2) 0%, rgba(0, 0, 0, 0.2) 80%, rgba(0,0,0,0.2) 100%);
-      }
-      .middle-part {
+        }
+        .middle-part {
           position: absolute;
           top: 0;
           bottom: 0;
@@ -100,8 +136,8 @@ class Starter extends HTMLElement {
           height: 5%;
           margin: auto;
           background-color: var(--middle-part-color);
-      }
-      .middle-circle {
+        }
+        .middle-circle {
           position: absolute;
           top: 0;
           bottom: 0;
@@ -113,8 +149,8 @@ class Starter extends HTMLElement {
           margin: auto;
           background-color: var(--middle-part-color);
           border-radius: 50%;
-      }
-      .pokeball-button {
+        }
+        .pokeball-button {
           position: absolute;
           top: 0;
           bottom: 0;
@@ -133,31 +169,31 @@ class Starter extends HTMLElement {
           cursor: pointer;
           transition-property: width height;
           transition: var(--opening-time) ease-in;
-      }
-      .pokeball-button:hover {
-        transform: scale(1.1);
-      }
-      .starter-container.active .pokeball-button {
+        }
+        .pokeball-button:hover {
+          transform: scale(1.1);
+        }
+        .starter-container.active .pokeball-button {
           --size: 100%;
-      }
-      .starter-image {
+        }
+        .starter-image {
           --size: 0%;
           --final-size: 50%;
           width: var(--size);
           height: var(--size);
-      }
-      .starter-container.active .starter-image {
+        }
+        .starter-container.active .starter-image {
           animation: pokemon-reveal 0.3s var(--opening-time) ease-in forwards;
-      }
-      .pokemon-name {
+        }
+        .pokemon-name {
           opacity: 0;
           text-align: center;
           text-transform: capitalize;
-      }
-      .starter-container.active .pokemon-name {
+        }
+        .starter-container.active .pokemon-name {
           animation: name-reveal 0.6s var(--opening-time) ease-in forwards;
-      }
-      @keyframes pokemon-reveal {
+        }
+        @keyframes pokemon-reveal {
           0% {
               width: 0%;
               height: 0%;
@@ -166,16 +202,16 @@ class Starter extends HTMLElement {
               width: var(--final-size);
               height: var(--final-size);
           }
-      }
-      @keyframes name-reveal {
+        }
+        @keyframes name-reveal {
           0% {
               opacity: 0;
           }
           100% {
               opacity: 1;
           }
-      }
-      @keyframes float {
+        }
+        @keyframes float {
           0% {
               transform: translateY(10%);
           }
@@ -185,8 +221,8 @@ class Starter extends HTMLElement {
           100% {
               transform: translateY(10%);
           }
-      }
-      @keyframes pokeball-shake {
+        }
+        @keyframes pokeball-shake {
           0% {
               transform: rotate(0deg);
           }
@@ -199,7 +235,7 @@ class Starter extends HTMLElement {
           100% {
               transform: rotate(0deg);
           }
-      }
+        }
       </style>
       <div class="starter-container">
         <svg class="arrow" viewBox="0 0 142 167" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -252,6 +288,14 @@ class Starter extends HTMLElement {
     removeActive() {
       const starter = this.shadow.querySelector('.starter-container');
       starter.classList.remove('active');
+    }
+    makeChoosen(pokemon) {
+      const starter = this.shadow.querySelector('.starter-container');
+      const button = this.shadow.querySelector('.pokeball-button');
+      button.disabled = true;
+      if (pokemon == this.pokemon) {
+        starter.classList.add('choosen');
+      }
     }
   }
   

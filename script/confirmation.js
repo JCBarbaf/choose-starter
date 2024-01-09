@@ -3,13 +3,13 @@ class Confirmation extends HTMLElement {
     constructor () {
       super()
       this.shadow = this.attachShadow({ mode: 'open' })
+      this.pokemon;
     }
   
     connectedCallback () {
       document.addEventListener('choose', (event => {
-        console.log(event);
-        this.confirmationControl(event.detail.pokemon);
-        // this.confirmationControl('Placeholder');
+        this.pokemon = event.detail.pokemon
+        this.confirmationControl();
       }));
       this.render();
     }
@@ -87,12 +87,31 @@ class Confirmation extends HTMLElement {
         </div>
       </div>
       `
+      const confirmation = this.shadow.querySelector('.confirmation-container');
+      confirmation.addEventListener('click', (event) => {
+        if (event.target.closest('.yes-button')) {
+          document.dispatchEvent(new CustomEvent('choosen', {
+            detail: {
+              pokemon: this.pokemon
+            }
+          })); 
+          confirmation.classList.remove('active');
+        }
+        if (event.target.closest('.no-button')) {
+          document.dispatchEvent(new CustomEvent('choose', {
+            detail: {
+              pokemon: ''
+            }
+          })); 
+          confirmation.classList.remove('active');
+        }
+      });
     }
-    confirmationControl(pokemon) {
+    confirmationControl() {
       const confirmation = this.shadow.querySelector('.confirmation-container');
       const pokemonName = this.shadow.querySelector('.pokemon-name');
-      pokemonName.innerHTML = pokemon;
-      if (pokemon != "") {
+      pokemonName.innerHTML = this.pokemon;
+      if (this.pokemon != "") {
         confirmation.classList.remove('active');
         setTimeout(() => {
           confirmation.classList.add('active');
