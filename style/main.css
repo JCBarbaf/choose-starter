@@ -49,6 +49,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    padding: 3% 1%;
     background: var(--background-color) var(--gradient);
     border-bottom: var(--border);
 }
@@ -71,9 +72,19 @@ body {
 }
 .pokemon-name {
     color: var(--name-color);
+    text-transform: capitalize;
 }
 .text h3 {
     margin-bottom: 3%;;
+}
+.rename {
+    display: none;
+}
+.rename.active {
+    display: block;
+}
+.rename-question {
+    display: none;
 }
 .buttons {
     display: flex;
@@ -81,6 +92,9 @@ body {
     align-items: center;
     gap: 20%;
     margin: 3% 0;
+}
+.rename-question.active {
+    display: block;
 }
 .button-container {
     display: flex;
@@ -105,13 +119,61 @@ button:focus {
     visibility: visible;
 }
 .nickname-input {
-    visibility: hidden;
+    display: none;
 }
-.rename {
-    /* visibility: hidden; */
+.nickname-input.active {
+    display: block;
+}
+.input-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 2%;
+    margin: 3% 0;
+}
+.input-button input {
+    flex: 1;
+    padding: 1% 2%;
+    background-color: var(--background-color);
+    border: var(--border);
+    border-color: rgb(0,0,0,0.2);
+    border-width: 0.2rem;
+    border-radius: 0.2rem;
+    font: inherit;
+    font-size: 0.75rem;
+}
+.input-button input:focus {
+    border-color: rgb(0,0,0,0.3);
+    outline: none;
+}
+.input-button button {
+    --size: 3rem;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background-color);
+    border: var(--border);
+    border-color: rgb(0,0,0,0.2);
+    border-width: 0.2rem;
+    border-radius: 0.2rem;
+    font-size: 0.7rem;
+}
+.input-button button:hover {
+    border-color: rgb(0,0,0,0.3);
+    filter: brightness(1.1);
 }
 .pokemon-info {
-    visibility: hidden;
+    display: none;
+}
+.pokemon-info.active {
+    display: block;
+    font-weight: bold;
+}
+.pokemon-info span {
+    color: inherit;
+    font-weight: normal;
 }
 .card-footer {
     height: 20%;
