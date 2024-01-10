@@ -19,7 +19,12 @@ class Confirmation extends HTMLElement {
       /*html*/`
       <style>
         :host {
-            --name-color: rgb(185, 185, 30);
+          --background-color: rgb(245, 245, 254);
+          --name-color: rgb(185, 185, 30);
+          --border-color: rgb(160, 208, 224);
+          --black: rgb(60,60,60);
+          --gradient: linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
+          --border: 0.5rem solid var(--border-color);
         }
         .confirmation-container {
             width: 70rem;
@@ -27,9 +32,9 @@ class Confirmation extends HTMLElement {
             justify-content: center;
             align-items: center;
             margin: auto;
-            background: rgb(245, 245, 254) linear-gradient(90deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 100%);
-            color: rgb(60,60,60);
-            border: 0.5rem solid rgb(160, 208, 224);
+            background: var(--background-color) var(--gradient);
+            color: var(--black);
+            border: var(--border-color);
             border-radius: 1rem;
             transform: translateY(200%);
         }
