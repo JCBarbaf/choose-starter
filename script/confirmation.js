@@ -27,7 +27,11 @@ class Confirmation extends HTMLElement {
           --border: 0.5rem solid var(--border-color);
         }
         .confirmation-container {
-            width: 70rem;
+            width: 60%;
+            position: absolute;
+            bottom: 5%;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: center;
             align-items: center;

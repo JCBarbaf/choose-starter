@@ -15,9 +15,15 @@ class StartersContainer extends HTMLElement {
       <style>
         .starters {
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-evenly;
           align-items: center;
           padding: 3%;
+        }
+        @media screen and (max-width: 550px) {
+          .starters {
+            margin-top: 5%;
+          }
         }
       </style>
       <div class="starters">

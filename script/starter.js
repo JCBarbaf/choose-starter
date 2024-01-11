@@ -239,6 +239,14 @@ class Starter extends HTMLElement {
               transform: rotate(0deg);
           }
         }
+        @media screen and (max-width: 550px) {
+          :host {
+            --pokeball-size: 8rem;
+          }
+          .arrow {
+            display: none;
+          }
+        }
       </style>
       <div class="starter-container">
         <svg class="arrow" viewBox="0 0 142 167" fill="none" xmlns="http://www.w3.org/2000/svg">
