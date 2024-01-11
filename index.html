@@ -12,45 +12,7 @@
 </head>
 <body>
     <background-component></background-component>
-    <div class="screen">
-        <div class="card">
-            <main class="card-main">
-                <img class="pokemon-img" src="img/pokemon/bulbasaur.webp" alt="Bulbasaur" title="Bulbasaur">
-                <div class="text">
-                    <div class="rename active">
-                        <h3>You recived a <span class="pokemon-name">Crabominable</span>!</h3>
-                        <div class="rename-question active">
-                            <p>Do you want to give <span class="pokemon-name">Crabominable</span> a nickname?</p>
-                            <div class="buttons">
-                                <div class="button-container">
-                                    <p class="arrow">►</p>
-                                    <button class="yes-button">Yes</button>
-                                </div>
-                                <div class="button-container">
-                                    <p class="arrow">►</p>
-                                    <button class="no-button">No</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="nickname-input">
-                            <label for="nickname"><span class="pokemon-name">crabominable</span>'s nickname?</label>
-                            <div class="input-button">
-                                <input type="text" name="nickname" maxlength="40">
-                                <button class="nickname-button">OK</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pokemon-info">
-                        <p>Pokémon: <span class="pokemon-name">Crabominable</span></p>
-                        <p>Name: <span class="pokemon-nickname">Crabominable</span></p>
-                    </div>
-                </div>
-            </main>
-            <footer class="card-footer">
-                <a href="">Choose again</a>
-            </footer>
-        </div>
-    </div>
+    <card-component></card-component>
     <main>
         <title-component></title-component>
         <starters-container-component></starters-container-component>

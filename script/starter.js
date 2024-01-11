@@ -11,7 +11,6 @@ class Starter extends HTMLElement {
         this.removeActive();
       }));
       document.addEventListener('choosen', (event => {
-        console.log(event.detail)
         this.removeActive();
         this.makeChoosen(event.detail.pokemon);
       }));
