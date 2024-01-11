@@ -10,6 +10,9 @@ class Card extends HTMLElement {
       document.addEventListener('choosen', (event => {
         setTimeout(() => {
           this.pokemon = event.detail.pokemon;
+          if (this.pokemon == 'picachu') {
+            this.pokemon = 'mimikyu';
+          }
           this.render();
           this.activateScreen();
         },600);
