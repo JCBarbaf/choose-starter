@@ -47,7 +47,6 @@ class Starter extends HTMLElement {
           visibility: visible;
         }
         .pokeball {
-          cursor: pointer;
           position: relative;;
           width: var(--pokeball-size);
           height: var(--pokeball-size);
