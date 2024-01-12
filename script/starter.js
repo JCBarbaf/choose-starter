@@ -58,6 +58,7 @@ class Starter extends HTMLElement {
           border: 0.5rem solid var(--middle-part-color);
           border-radius: 50%;
           box-shadow: 0.5rem 0.5rem 0 0 rgb(0,0,0,0.2);
+          cursor: pointer;
           transform-origin: 50% 100%;
         }
         .pokeball:hover {
@@ -279,9 +280,9 @@ class Starter extends HTMLElement {
         <h2 class="pokemon-name">${this.pokemon}</h2>
       </div>
       `
-      const button = this.shadow.querySelector('.pokeball-button');
+      const pokeball = this.shadow.querySelector('.pokeball');
       const starter = this.shadow.querySelector('.starter-container');
-      button.addEventListener('click', () => {
+      pokeball.addEventListener('click', () => {
           if (!starter.classList.contains('active')) {
             document.dispatchEvent(new CustomEvent('choose', {
                 detail: {

@@ -194,6 +194,7 @@ class Card extends HTMLElement {
           height: 20%;
           display: flex;
           justify-content: center;
+          padding: 2% 0;
           background: var(--footer-color) var(--gradient);
         }
         .card-footer a {
@@ -204,6 +205,7 @@ class Card extends HTMLElement {
           border: var(--border);
           border-width: 0.2rem;
           border-radius: 2rem;
+          font-size: 1.5rem;
           text-decoration: none;
         }
         .card-footer a:hover {
