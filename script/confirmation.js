@@ -36,6 +36,7 @@ class Confirmation extends HTMLElement {
             justify-content: center;
             align-items: center;
             margin: auto;
+            padding: 3%;
             background: var(--background-color) var(--gradient);
             color: var(--black);
             border: var(--border-color);
@@ -46,6 +47,7 @@ class Confirmation extends HTMLElement {
           animation: pop-up 0.3s ease-in forwards;
         }
         .confirmation-text {
+          flex: 1;
           font-weight: normal;
         }
         .pokemon-name {
@@ -81,6 +83,15 @@ class Confirmation extends HTMLElement {
           }
           to {
             transform: translateY(0%);
+          }
+        }
+        @media screen and (max-width: 550px) {
+          .confirmation-container {
+            width: 99%;
+            font-size: 0.5rem;
+          }
+          button {
+            font-size: 0.7rem;
           }
         }
       </style>

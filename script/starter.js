@@ -246,6 +246,9 @@ class Starter extends HTMLElement {
           .arrow {
             display: none;
           }
+          .pokemon-name {
+            font-size: 0.7rem;
+          }
         }
       </style>
       <div class="starter-container">
