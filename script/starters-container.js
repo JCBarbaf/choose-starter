@@ -22,7 +22,7 @@ class StartersContainer extends HTMLElement {
         }
         @media screen and (max-width: 550px) {
           .starters {
-            margin-top: 5%;
+            margin-top: 10%;
           }
         }
       </style>

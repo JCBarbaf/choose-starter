@@ -67,7 +67,7 @@ class Starter extends HTMLElement {
           filter: brightness(0.5);
         }
         .star {
-          width: 3rem;
+          width: 15%;
           position: absolute;
           top: 0;
           bottom: 0;
@@ -82,30 +82,30 @@ class Starter extends HTMLElement {
           animation: star 0.3s ease-in forwards;
         }
         .star:nth-of-type(1) {
-          --initial-x: -10rem;
-          --final-x: -11rem;
-          --initial-y: -8rem;
-          --final-y: -9rem;
+          --initial-x: -400%;
+          --final-x: -450%;
+          --initial-y: -350%;
+          --final-y: -400%;
           --initial-rotation: -35deg;
           --final-rotation: -40deg;
           --initial-scale: 2;
           --final-scale: 2.2;
         }
         .star:nth-of-type(2) {
-          --initial-x: 0rem;
-          --final-x: 0rem;
-          --initial-y: -11rem;
-          --final-y: -12rem;
+          --initial-x: 0%;
+          --final-x: 0%;
+          --initial-y: -450%;
+          --final-y: -500%;
           --initial-rotation: 2deg;
           --final-rotation: 5deg;
-          --initial-scale: 0.5;
-          --final-scale: 0.7;
+          --initial-scale: 0.7;
+          --final-scale: 1;
         }
         .star:nth-of-type(3) {
-          --initial-x: 9rem;
-          --final-x: 10rem;
-          --initial-y: -8rem;
-          --final-y: -9rem;
+          --initial-x: 350%;
+          --final-x: 400%;
+          --initial-y: -350%;
+          --final-y: -400%;
           --initial-rotation: 20deg;
           --final-rotation: 24deg;
           --initial-scale: 1;
