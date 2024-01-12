@@ -87,7 +87,8 @@ class Confirmation extends HTMLElement {
         }
         @media screen and (max-width: 550px) {
           .confirmation-container {
-            width: 99%;
+            width: 90%;
+            bottom: 2%;
             font-size: 0.5rem;
           }
           button {

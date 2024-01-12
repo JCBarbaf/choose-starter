@@ -210,6 +210,34 @@ class Card extends HTMLElement {
           filter: brightness(1.1);
           transform: scale(1.1);
         }
+        @media screen and (max-width: 550px) {
+          .card {
+            width: 90%;
+          }
+          .card-main {
+            flex-direction: column;
+            padding: 3%;
+          }
+          .pokemon-img {
+            --size: 15rem;
+            margin: auto;
+          }
+          .text {
+            font-size: 1rem;
+          }
+          .button-container {
+            font-size: 1rem;
+          }
+          .input-button input {
+            font-size: 0.5rem;
+          }
+          .input-button button {
+            font-size: 0.7rem;
+          }
+          .card-footer {
+            padding: 3% 0;
+          }
+        }
       </style>
       <div class="screen">
         <div class="card">
