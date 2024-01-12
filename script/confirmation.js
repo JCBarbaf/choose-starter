@@ -36,7 +36,7 @@ class Confirmation extends HTMLElement {
             justify-content: center;
             align-items: center;
             margin: auto;
-            padding: 3%;
+            padding: 1% 3%;
             background: var(--background-color) var(--gradient);
             color: var(--black);
             border: var(--border-color);
